@@ -64,7 +64,7 @@
             <tr style="background-color: pink;">
                 <td>Nhập số phần tử:</td>
                 <td>
-                    <input type="text" name="input" size="20" value="<?php 
+                    <input type="number" name="input" size="20" value="<?php 
                         if(isset($input))   echo $input;
                     ?>">
                 </td>
