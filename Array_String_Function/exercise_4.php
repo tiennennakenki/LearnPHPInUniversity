@@ -10,9 +10,10 @@
         if(isset($_POST['search'])){
             function Search($inputIndexSearch, $array){
                 $result = "Không tìm thấy $inputIndexSearch trong mảng";
-                for($i=1; $i<=count($array);$i++){
+                for($i=0; $i<count($array);$i++){
+                    $pos = $i +1;
                     if($inputIndexSearch === $array[$i]){
-                        $result = "Tìm thấy $inputIndexSearch tại vị trí thứ $i của mảng";
+                        $result = "Tìm thấy $inputIndexSearch tại vị trí thứ $pos của mảng";
                         break;
                     }
                 }
@@ -20,7 +21,6 @@
                 return $result;
             }
 
-            // Kiểm tra xem các biến POST có tồn tại không
             if(isset($_POST['inputArray']) && isset($_POST['inputIndexSearch'])){
                 $inputArray = $_POST['inputArray'];
                 $inputIndexSearch = $_POST['inputIndexSearch'];

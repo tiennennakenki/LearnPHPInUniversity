@@ -42,7 +42,7 @@
                     <input type="submit" name="submit" value="=>" style="color: red; font-weight: bold;">
                 </td>
                 <td align="center">
-                    <input style="color: red; font-weight: bold;" type="text" name="lunarYear" value="<?php
+                    <input readonly style="color: red; font-weight: bold;" type="text" name="lunarYear" value="<?php
                         if(isset($nam_al))    echo $nam_al;
                     ?>">
                 </td>
