@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tính năm âm lịch</title>
 </head>
+
 <body>
     <?php
-        if(isset($_POST['submit'])){
-            $mang_can = array("Quý", "Giáp", "Ất", "Binh", "Đinh", "Mậu", "Ký", "Canh", "Tân", "Nhâm");
-            $mang_chi = array("Hợi", "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất");
-            $mang_hinh = array("hoi.jpg", "ty.jpg", "suu.jpg", "dan.jpg", "mao.jpg", "thin.jpg", "ran.jpg", "ngo.jpg", "mui.jpg", "than.jpg", "dau.jpg", "tuat.jpg");
-            $nam = $_POST['year'];
+    if (isset($_POST['submit'])) {
+        $mang_can = array("Quý", "Giáp", "Ất", "Binh", "Đinh", "Mậu", "Ký", "Canh", "Tân", "Nhâm");
+        $mang_chi = array("Hợi", "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất");
+        $mang_hinh = array("hoi.jpg", "ty.jpg", "suu.jpg", "dan.jpg", "mao.jpg", "thin.jpg", "ran.jpg", "ngo.jpg", "mui.jpg", "than.jpg", "dau.jpg", "tuat.jpg");
+        $nam = $_POST['year'];
 
-            $year = $nam-3;
-            $can = $year%10;
-            $chi = $year%12;
+        if ($nam > 0) {
+            $year = $nam - 3;
+            $can = $year % 10;
+            $chi = $year % 12;
             $nam_al = $mang_can[$can];
             $nam_al = $nam_al . " " . $mang_chi[$chi];
             $hinh = $mang_hinh[$chi];
             $hinh_anh = "<img src='12con_giap/$hinh' alt='Hình con vật' >";
+        } else {
+            $msg = "Vui lòng nhập năm hợp lệ";
         }
+    }
     ?>
     <form action="" name="lunarYear" method="post">
         <table align="center" style="background-color: #E6E6FA;">
@@ -35,7 +41,8 @@
             <tr>
                 <td align="center">
                     <input style="color: blue" type="number" name="year" value="<?php
-                        if(isset($nam))    echo $nam;
+                    if (isset($nam))
+                        echo $nam;
                     ?>">
                 </td>
                 <td align="center">
@@ -43,18 +50,22 @@
                 </td>
                 <td align="center">
                     <input readonly style="color: red; font-weight: bold;" type="text" name="lunarYear" value="<?php
-                        if(isset($nam_al))    echo $nam_al;
+                    if (isset($nam_al))
+                        echo $nam_al;
                     ?>">
                 </td>
             </tr>
             <tr>
                 <td colspan="3" align="center">
                     <?php
-                        if(isset($hinh_anh))    echo $hinh_anh;
+                    if (isset($hinh_anh))
+                        echo $hinh_anh;
                     ?>
                 </td>
             </tr>
+
         </table>
     </form>
 </body>
+
 </html>

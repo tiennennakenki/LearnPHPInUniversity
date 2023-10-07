@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tính tổng dãy số</title>
 </head>
+
 <body>
     <?php
-        if(isset($_POST['submit'])){
-            $arr = $_POST['dayso'];
-            $sum = array_sum(explode(",",$arr));
-        }
+    if (isset($_POST['submit'])) {
+        $arr = $_POST['dayso'];
+        $sum = array_sum(explode(",", $arr));
+    }
     ?>
     <form action="" method="post" name="sum">
         <table style="background: beige" align="center">
@@ -20,8 +22,9 @@
             <tr>
                 <td>Nhập dãy số: </td>
                 <td>
-                    <input type="text" name="dayso" value="<?php 
-                        if(isset($arr)) echo $arr;
+                    <input type="text" name="dayso" value="<?php
+                    if (isset($arr))
+                        echo $arr;
                     ?>" required>
                     <span style="color: red;">(*)</span>
                 </td>
@@ -35,8 +38,9 @@
             <tr>
                 <td>Tổng dãy số: </td>
                 <td>
-                    <input style="color: red; background: greenyellow" type="text" name="sum" size="20" value="<?php 
-                        if(isset($sum)) echo $sum;
+                    <input style="color: red; background: greenyellow" type="text" name="sum" size="20" value="<?php
+                    if (isset($sum))
+                        echo $sum;
                     ?>" readonly>
                 </td>
             </tr>
@@ -49,4 +53,5 @@
         </table>
     </form>
 </body>
+
 </html>
