@@ -31,12 +31,12 @@
             return $array;
         }
 
-        if (preg_match('/^[0-9,.\s]+$/', $input)) {
-            $array = explode(",", $input);
-            $oldArray = PrintArray($array);
-            $newArray = PrintArray(Replace($indexReplace, $indexReplaced, $array));
-        } else
-            $msg = "(*)Mảng không hợp lệ";
+        $input = str_replace(' ', '', $input);
+        $array = explode(",", $input);
+        $oldArray = PrintArray($array);
+        $newArray = PrintArray(Replace($indexReplace, $indexReplaced, $array));
+
+        
     }
     ?>
     <form action="" method="post" name="replace">
@@ -56,7 +56,7 @@
             <tr style="background-color: #FFC0CB;">
                 <td>Giá trị cần thay thế:</td>
                 <td>
-                    <input required type="number" name="indexReplaced" step="any" value="<?php
+                    <input required type="text" name="indexReplaced" step="any" value="<?php
                     if (isset($indexReplaced))
                         echo $indexReplaced;
                     ?>">
@@ -65,7 +65,7 @@
             <tr style="background-color: #FFC0CB;">
                 <td>Giá trị thay thế:</td>
                 <td>
-                    <input required type="number" step="any" name="indexReplace" value="<?php
+                    <input required type="text" step="any" name="indexReplace" value="<?php
                     if (isset($indexReplace))
                         echo $indexReplace;
                     ?>">

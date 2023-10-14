@@ -48,12 +48,12 @@
             return $array;
         }
 
-        if (preg_match('/^[0-9,\s]+$/', $input)) {
-            $array = explode(",", $input);
-            $ascending = PrintArray(Ascending($array));
-            $descending = PrintArray(Descending($array));
-        } else
-            $msg = "*Mảng không hợp lệ";
+        //$inputArray = preg_replace('/[^a-zA-Z0-9, ]/', '', $input);
+        $input_nospace = str_replace(' ', '', $input);
+
+        $array = explode(",", $input_nospace);
+        $ascending = PrintArray(Ascending($array));
+        $descending = PrintArray(Descending($array));
     }
     ?>
     <form action="" name="sort" method="post">

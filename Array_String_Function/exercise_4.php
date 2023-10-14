@@ -30,23 +30,17 @@
 
             if (!empty($inputArray) && !empty($inputIndexSearch)) {
                 $inputArray = trim($inputArray);
+                $inputArray = str_replace(' ', '', $inputArray);
+                $array = explode(",", $inputArray);
+                $string = implode("  ", $array);
+                $result = Search($inputIndexSearch, $array);
 
-                if (preg_match('/^[0-9,\s]+$/', $inputArray)) {
-                    $array = explode(",", $inputArray);
-                    $string = implode(", ", $array);
-                    $result = Search($inputIndexSearch, $array);
-                } else
-                    $msg = "*Chuỗi không hợp lệ";
-                // Tiếp theo, bạn có thể thực hiện xử lý tiếp theo dựa trên mảng đã tạo ở đây
             } elseif (empty($inputArray)) {
-                // Xử lý khi $inputArray trống
                 $msg = "*Vui lòng nhập mảng.";
             } elseif (empty($inputIndexSearch)) {
-                // Xử lý khi $inputArray trống
                 $msg = "*Vui lòng nhập số cần tìm.";
             }
         } else {
-            // Xử lý khi các biến POST bị thiếu
             $msg = "*Có lỗi xảy ra với dữ liệu đầu vào.";
         }
     }
@@ -62,13 +56,13 @@
                     <input type="text" name="inputArray" size="28" value="<?php
                     if (isset($inputArray))
                         echo $inputArray;
-                    ?>">
+                    ?>" required>
                 </td>
             </tr>
             <tr>
                 <td>Nhập số cần tìm:</td>
                 <td>
-                    <input type="text" name="inputIndexSearch" size="6" value="<?php
+                    <input step="any" type="number" name="inputIndexSearch" size="6" value="<?php
                     if (isset($inputIndexSearch))
                         echo $inputIndexSearch;
                     ?>">
