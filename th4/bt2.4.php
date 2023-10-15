@@ -10,12 +10,14 @@
     tr:nth-child(odd) {
       background-color: lightgreen;
     }
-    a{
+
+    a {
       text-decoration: none;
       color: darkseagreen;
       padding: 0 10px;
     }
-    a:hover{
+
+    a:hover {
       color: darkgreen;
     }
   </style>
@@ -25,7 +27,7 @@
   <?php
   $com = mysqli_connect('localhost', 'root', '', 'quanly_ban_sua');
   mysqli_set_charset($com, 'UTF8');
-  $rowsPerPage = 2; //số mẩu tin trên mỗi trang, giả sử là 10
+  $rowsPerPage = 2; //số mẩu tin trên mỗi trang, giả sử là 2
   if (!isset($_GET['page'])) {
     $_GET['page'] = 1;
   }
@@ -75,7 +77,7 @@ size='5' color='green'> THÔNG TIN SỮA</font></P>";
   for ($i = 1; $i <= $maxPage; $i++) //tạo link tương ứng tới các trang
   {
     if ($i == $_GET['page'])
-    echo "<b style='padding:0 10px;'>" . $i . "</b> "; //trang hiện tại sẽ được bôi đậm
+      echo "<b style='padding:0 10px;'>" . $i . "</b> "; //trang hiện tại sẽ được bôi đậm
     else
       echo "<a href="
         . $_SERVER['PHP_SELF'] . "?page=" . $i . ">" . $i . "</a> ";
