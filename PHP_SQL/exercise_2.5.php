@@ -28,11 +28,11 @@
     $result = mysqli_query($conn, $sql);
 
     echo "<table align='center' border='1'>";
-    echo "<tr><td colspan='2'<b>THÔNG TIN CÁC SẢN PHẨM</b></td></tr>";
+    echo "<tr><td colspan='2'<b style='text-align: center; color: orange; font-weight: bold; font-size: 30px'>THÔNG TIN CÁC SẢN PHẨM</b></td></tr>";
     if (mysqli_num_rows($result) <> 0) {
         while ($rows = mysqli_fetch_row($result)) {
             echo "<tr>
-            <td width='20%' height='200px' align='center'><img width='150px' src='./img/Hinh_sua/$rows[0]' alt=''></td>
+            <td width='50%' height='200px' align='center'><img width='150px' src='./img/Hinh_sua/$rows[0]' alt=''></td>
             <td>
                 <b>$rows[1]</b>
                 <p>Nhà sản xuất: $rows[2]</p>

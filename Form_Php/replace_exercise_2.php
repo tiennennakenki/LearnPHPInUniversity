@@ -28,10 +28,9 @@
     <?php
     include 'config.php';
     $conn = mysqli_connect($servername, $username, $password, $dbname);
-    if(!$conn){
+    if (!$conn) {
         die("Connection failed:" . mysqli_connect_error());
-    }
-    else{
+    } else {
         //echo "Thành công</br>";
     }
 
@@ -43,6 +42,7 @@
         $password = $_GET['password'];
         $confirmPassword = $_GET['confirmPassword'];
         $gender = $_GET['gender'];
+
         $options = [
             'cost => 12',
         ];
@@ -89,9 +89,8 @@
             <tr>
                 <td>Full Name<br>
                     <input type="text" name="fullname" value="<?php
-                    if (isset($_GET['submit']))
-                        if (!empty($_GET['fullname']))
-                            echo $_GET['fullname'];
+                    if (isset($fullname))
+                        echo $fullname;
                     ?>">
                 </td>
                 <td>
